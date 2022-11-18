@@ -13,9 +13,9 @@ class ForgotPasswordView extends StatelessWidget {
     return GetBuilder<ForgotPasswordController>(
       builder: (controller) => Scaffold(
         backgroundColor: AppColors.bgCard,
-        body: SafeArea(
-          bottom: false,
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
+          child: SafeArea(
+            bottom: false,
             child: SizedBox(
               height: MediaQuery.of(context).size.height -
                   MediaQuery.of(context).padding.top,
