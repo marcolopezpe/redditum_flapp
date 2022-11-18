@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:redditum_flapp/app/routes/app_routes.dart';
 import 'package:redditum_flapp/app/routes/app_views.dart';
 import 'package:redditum_flapp/core/config/app_config.dart';

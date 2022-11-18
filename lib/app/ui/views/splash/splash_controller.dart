@@ -19,7 +19,7 @@ class SplashController extends GetxController {
   @override
   void onReady() {
     Future.delayed(const Duration(seconds: 3), () {
-      doAuth();
+     doAuth();
     });
     super.onReady();
   }
@@ -32,7 +32,7 @@ class SplashController extends GetxController {
   final _authRepository = Get.find<AuthRepository>();
   final _usuarioRepository = Get.find<UsuarioRepository>();
 
-  void doAuth() async {
+  Future<void> doAuth() async {
     try {
       String username = await LocalStorageService.get(Keys.keySessionUsername);
       String password = await LocalStorageService.get(Keys.keySessionPassword);
@@ -80,12 +80,9 @@ class SplashController extends GetxController {
       } else {
         Get.offAllNamed(AppRoutes.login);
       }
-    } on DioError catch (e) {
-      if (e.response?.statusCode == 404) {
-        CustomAlert.danger(message: e.response?.data["mensaje"]);
-      } else {
-        CustomAlert.danger(message: e.error);
-      }
+    } catch (e) {
+      print(e);
+      Get.offAllNamed(AppRoutes.login);
     }
   }
 }
