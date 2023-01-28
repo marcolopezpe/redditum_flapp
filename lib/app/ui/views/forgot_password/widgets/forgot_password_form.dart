@@ -15,50 +15,49 @@ class ForgotPasswordForm extends GetView<ForgotPasswordController> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraint) {
-        return Padding(
-          padding: EdgeInsets.only(bottom: constraint.maxHeight * .1),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Center(
-                child: LabelText(
-                  text: "Recuperar Contrase\u{00F1}a",
-                  fontSize: 30.0,
-                ),
-              ),
-              SizedBox(height: 10.w),
-              const LabelText(text: "Ingrese su nombre de usuario para recibir en su e-mail los pasos para la recuperación."),
-              SizedBox(height: 10.w),
-              const LabelText(text: "Usuario"),
-              InputText(
-                controller: controller.ctrlTextUsername,
-                hintText: "Usuario",
-                keyboardType: TextInputType.text,
-              ),
-              SizedBox(height: 10.w),
-              CommandButton(
-                type: CustomColorType.success,
-                text: "Enviar",
-                click: controller.sendEmail,
-              ),
-              LinkText(
-                text: "¡Ya recuerdo mi contrase\u{00F1}a, ir al Login!",
-                click: () => Get.toNamed(AppRoutes.login),
-              ),
-              SizedBox(height: 20.w),
-              const Divider(color: AppColors.whiteHint, height: 1.0),
-              const Center(
-                child: LinkText(
-                  text: "Redditum v1.0.0",
-                  color: AppColors.whiteHint,
-                ),
-              ),
-            ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Center(
+            child: LabelText(
+              text: "Recuperar Contrase\u{00F1}a",
+              fontSize: 30.0,
+            ),
           ),
-        );
-      },
+          SizedBox(height: 10.w),
+          const LabelText(
+              text:
+                  "Ingrese su nombre de usuario para recibir en su e-mail los pasos para la recuperación."),
+          SizedBox(height: 10.w),
+          const LabelText(text: "Usuario"),
+          InputText(
+            controller: controller.ctrlTextUsername,
+            hintText: "Usuario",
+            keyboardType: TextInputType.text,
+          ),
+          SizedBox(height: 10.w),
+          CommandButton(
+            type: CustomColorType.success,
+            text: "Enviar",
+            click: controller.sendEmail,
+          ),
+          LinkText(
+            text: "¡Ya recuerdo mi contrase\u{00F1}a, ir al Login!",
+            click: () => Get.toNamed(AppRoutes.login),
+          ),
+          SizedBox(height: 20.w),
+          const Divider(color: AppColors.whiteHint, height: 1.0),
+          const Center(
+            child: LinkText(
+              text: "Redditum v1.0.0",
+              color: AppColors.whiteHint,
+            ),
+          ),
+          SizedBox(height: 20.w),
+        ],
+      ),
     );
   }
 }

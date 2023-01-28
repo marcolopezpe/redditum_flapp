@@ -11,21 +11,26 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
-      builder: (controller) => Scaffold(
-        backgroundColor: AppColors.bgCard,
-        body: SingleChildScrollView(
-          child: SafeArea(
-            bottom: false,
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height -
-                  MediaQuery.of(context).padding.top,
-              child: Column(
-                children: const [
-                  LoginHeader(),
-                  LoginContent(),
-                ],
-              ),
-            ),
+      builder: (controller) => SafeArea(
+        bottom: false,
+        child: Scaffold(
+          backgroundColor: AppColors.bgCard,
+          body: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: IntrinsicHeight(
+                    child: Column(
+                      children: const [
+                        LoginHeader(),
+                        LoginContent(),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),

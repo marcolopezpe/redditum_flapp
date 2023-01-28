@@ -12,7 +12,7 @@ class LoginContent extends StatelessWidget {
     return Expanded(
       child: Container(
         color: AppColors.bgSidebar,
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        padding: EdgeInsets.symmetric(horizontal: 1.w),
         child: const SizedBox(
           width: double.infinity,
           child: LoginForm(),
